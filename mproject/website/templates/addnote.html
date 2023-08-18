@@ -1,0 +1,22 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
+    %}
+
+    <h1 align="center">Add Permanant Vehicle Number</h1>
+<form method="POST">
+    <br />
+    <p>Enter Vehicle Number: </p>
+    <textarea name="note" id="note" class="form-control"></textarea>
+    <br />
+    <p>Enter Owner name: </p>
+    <textarea name="owner" id="owner" class="form-control"></textarea>
+    <br />
+    <p>Enter Apartment No: </p>
+    <textarea name="apartmentno" id="apartmentno" class="form-control"></textarea>
+    <br />
+    <div align="center">
+      <button type="submit" class="btn btn-primary">Add Vehicle Number</button>
+    </div>
+  </form>
+  <br>
+
+    {% endblock %}   

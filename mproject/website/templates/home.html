@@ -1,0 +1,96 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
+  %}
+  <h1 align="center">Authorised Vehicle Numbers</h1>
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    th, td {
+      padding: 0.5rem;
+      border: 1px solid #ddd;
+    }
+    
+    th {
+      background-color: #2f4f4f;
+      text-align: left;
+      color: white;
+      font-weight: 600;
+    }
+    
+    tr:hover {
+      background-color: #f8f9fa;
+    }
+    .button-link {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      border: 1px solid #ccc;
+      border-radius: 0.5rem;
+      background-color: #eee;
+      color: #333;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+    
+    .button-link:hover {
+      background-color: #ddd;
+      color: #222;
+    }
+  </style>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Vehicle Number</th>
+        <th>Vehicle Owner</th>
+        <th>Apartment No</th>
+        <th>Delete Note</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for note in user.notes %}
+      <tr>
+        <td>{{ note.data }}</td>
+        <td>{{ note.owner }}</td>
+        <td>{{ note.apartmentno }}</td>
+        <td>
+          <button type="button" class="close" onClick="deleteNote({{ note.id }})">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  
+  
+  <br>
+  <h1 align="center">Authorised Guest Vehicle Numbers</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Vehicle Number</th>
+        <th>Expiry Date</th>
+        <th>Vehicle Related to</th>
+        <th>Delete Note</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for cab in user.cabs %}
+      <tr>
+        <td>{{ cab.data }}</td>
+        <td>{{ cab.expdate }}</td>
+        <td>{{ cab.relativeof }}</td>
+        <td>
+          <button type="button" class="close" onClick="deleteCab({{ cab.id }})">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  
+
+{% endblock %}

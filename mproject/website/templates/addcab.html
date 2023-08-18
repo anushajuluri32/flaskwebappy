@@ -1,0 +1,22 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
+    %}
+    <h1 align="center">Add Guest Vehicle Number</h1>
+    <form method="POST">
+        <br />
+        <p>Enter Guest Vehicle Number: </p>
+        <textarea name="cab" id="cab" class="form-control"></textarea>
+        <br />
+        <p>Enter Expiry Date: </p>
+        <input type="datetime-local" id="expirydate" name="expirydate">
+        <br />
+        <br />
+        <p>Related to: </p>
+        <textarea name="relativeof" id="relativeof" class="form-control"></textarea>
+        <br />
+        <div align="center">
+          <button type="submit" class="btn btn-primary">Add Guest Vehicle Number</button>
+        </div>
+        <br />
+        <br />
+    </form>
+    {% endblock %}   
